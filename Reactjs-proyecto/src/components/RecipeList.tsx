@@ -12,7 +12,7 @@ function RecipeList({ recipes, onSelect }: Props) {
   }
 
   return (
-    <div>
+    <div className="recipes-container">
 
       <h2>Recetas encontradas</h2>
 

@@ -1,7 +1,18 @@
+body{
+  background-image: url("./fondos/fondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .container{
-  max-width:900px;
-  margin:auto;
-  font-family:Arial;
+  background: rgba(500,500,500,1);
+  padding: 80px;
+  border-radius: 40px;
+  width: 900px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .recipes-container{
@@ -12,11 +23,12 @@
 }
 
 .card{
-  background:white;
-  border-radius:10px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
 .card img{
@@ -35,4 +47,12 @@
 
 .recipe-detail{
   margin-top:40px;
+}
+
+.recipes-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+  justify-items: center;
 }
