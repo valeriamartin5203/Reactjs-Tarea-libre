@@ -124,6 +124,22 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ## Imagenes de la pagina
 
+<p>
+   <img width="1366" height="636" alt="principal" src="https://github.com/user-attachments/assets/3a5fee86-1223-4de9-98fa-0d052acc2f3f" />
+</p>
+
+<p>
+   <img width="1350" height="635" alt="2" src="https://github.com/user-attachments/assets/7b731408-e9e8-466a-a92f-b5a775e02892" />
+</p>
+
+<p>
+   <img width="1338" height="523" alt="3" src="https://github.com/user-attachments/assets/fc96a338-a7b5-46e1-8ef6-d3582b16daf2" />
+</p>
+
+<p>
+   <img width="1351" height="637" alt="4" src="https://github.com/user-attachments/assets/be7d208d-90ae-418b-8db7-35f052b1775d" />
+</p>
+
 
 
 **¿Encontraste un bug o tienes sugerencias?** ¡Crea un issue o pull request!
