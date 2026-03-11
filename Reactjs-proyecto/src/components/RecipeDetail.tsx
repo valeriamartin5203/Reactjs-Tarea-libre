@@ -8,25 +8,7 @@ interface Props {
 function RecipeDetail({ recipe }: Props) {
 
   const [instructionsES, setInstructionsES] = useState("");
-
-  useEffect(() => {
-
-    const translate = async () => {
-
-      const text = encodeURIComponent(recipe.strInstructions);
-
-      const res = await fetch(
-        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${text}`
-      );
-
-      const data = await res.json();
-
-      setInstructionsES(data[0].map((item: any) => item[0]).join(""));
-    };
-
-    translate();
-
-  }, [recipe]);
+  const [ingredientsES, setIngredientsES] = useState<string[]>([]);
 
   const ingredients: string[] = [];
 
@@ -39,6 +21,44 @@ function RecipeDetail({ recipe }: Props) {
       ingredients.push(`${measure} ${ing}`);
     }
   }
+
+  useEffect(() => {
+
+    const translate = async () => {
+
+      // traducir instrucciones
+      const text = encodeURIComponent(recipe.strInstructions);
+
+      const res = await fetch(
+        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${text}`
+      );
+
+      const data = await res.json();
+
+      setInstructionsES(data[0].map((item: any) => item[0]).join(""));
+
+      // traducir ingredientes
+      const translatedIngredients = await Promise.all(
+        ingredients.map(async (item) => {
+
+          const textIng = encodeURIComponent(item);
+
+          const resIng = await fetch(
+            `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${textIng}`
+          );
+
+          const dataIng = await resIng.json();
+
+          return dataIng[0].map((t: any) => t[0]).join("");
+        })
+      );
+
+      setIngredientsES(translatedIngredients);
+    };
+
+    translate();
+
+  }, [recipe]);
 
   return (
     <div className="detail">
@@ -54,7 +74,7 @@ function RecipeDetail({ recipe }: Props) {
       <h3>Ingredientes</h3>
 
       <ul>
-        {ingredients.map((item, index) => (
+        {ingredientsES.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
