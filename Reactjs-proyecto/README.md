@@ -1,75 +1,124 @@
-# React + TypeScript + Vite
+# 🍳 Buscador de Recetas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web interactiva para buscar recetas por ingredientes. Escribe un ingrediente en español, la aplicación lo traduce al inglés automáticamente y busca recetas que lo contengan.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Búsqueda de recetas por ingredientes
+- 🌐 Traducción automática de español a inglés
+- 📋 Lista de ingredientes y medidas
+- 📝 Instrucciones detalladas de cada receta
+- 🖼️ Imágenes de las recetas
+- 📱 Interfaz responsiva y amigable
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React 18** - Librería de interfaz de usuario
+- **TypeScript** - Tipado estático
+- **Vite** - Herramienta de construcción rápida
+- **CSS3** - Estilos personalizados
 
-Note: This will impact Vite dev & build performances.
+## 📦 Requisitos Previos
 
-## Expanding the ESLint configuration
+- Node.js (v16 o superior)
+- npm o yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Instalación
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clona o descarga el proyecto:
+```bash
+# Si usas git
+git clone <tu-repositorio>
+cd Reactjs-proyecto
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Instala las dependencias:
+```bash
+npm install
 ```
+
+3. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
+
+4. Abre tu navegador en `http://localhost:5173`
+
+## 💻 Cómo Usar
+
+1. **Agregar ingredientes**: Escribe un ingrediente en español en el campo de entrada
+2. **Buscar recetas**: Haz clic en "Buscar recetas" o presiona Enter
+3. **Ver detalles**: Selecciona "Ver receta" en cualquier tarjeta para ver:
+   - Ingredientes con medidas
+   - Instrucciones paso a paso (traducidas al español)
+   - Imagen de la receta
+
+## 📁 Estructura del Proyecto
+
+```
+Reactjs-proyecto/
+├── src/
+│   ├── components/          # Componentes de React
+│   │   ├── IngredientInput.tsx    # Campo para agregar ingredientes
+│   │   ├── RecipeList.tsx         # Lista de recetas encontradas
+│   │   └── RecipeDetail.tsx       # Detalle de una receta
+│   ├── services/
+│   │   └── api.ts          # Funciones para llamadas a APIs
+│   ├── types/
+│   │   ├── recipe.ts       # Tipo para recetas simples
+│   │   └── recipeDetail.ts # Tipo para detalles de receta
+│   ├── App.tsx             # Componente principal
+│   ├── App.css             # Estilos de la aplicación
+│   └── main.tsx            # Punto de entrada
+├── public/                 # Archivos estáticos
+├── index.html              # HTML principal
+├── package.json            # Dependencias del proyecto
+└── vite.config.ts          # Configuración de Vite
+```
+
+## 🔌 APIs Utilizadas
+
+### TheMealDB API
+- **Búsqueda de recetas**: `https://www.themealdb.com/api/json/v1/1/filter.php?i={ingrediente}`
+- **Detalles de receta**: `https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}`
+
+### Google Translate API
+- **Traducción de ingredientes**: `https://translate.googleapis.com/translate_a/single`
+
+## 📝 Scripts Disponibles
+
+```bash
+# Inicia el servidor de desarrollo
+npm run dev
+
+# Construye la aplicación para producción
+npm run build
+
+# Previsualiza la build de producción
+npm run preview
+
+# Ejecuta ESLint para verificar la calidad del código
+npm run lint
+```
+
+## 🎨 Personalización
+
+### Cambiar colores y estilos
+Edita los archivos `App.css` e `index.css` para personalizar la apariencia.
+
+### Cambiar imagen de fondo
+Reemplaza el archivo en `src/fondos/` y actualiza la ruta en los archivos CSS.
+
+## ⚠️ Notas Importantes
+
+- La aplicación depende de APIs externas (TheMealDB y Google Translate)
+- Asegúrate de tener conexión a internet para que funcione correctamente
+- Las traducciones se hacen automáticamente al agregar ingredientes
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+
+---
+
+**¿Encontraste un bug o tienes sugerencias?** ¡Crea un issue o pull request!
