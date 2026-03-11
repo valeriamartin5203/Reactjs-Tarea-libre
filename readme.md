@@ -120,5 +120,23 @@ Reemplaza el archivo en `src/fondos/` y actualiza la ruta en los archivos CSS.
 Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ---
+## Imagenes de la pagina
+
+<p>
+   <img width="1366" height="636" alt="principal" src="https://github.com/user-attachments/assets/75102a4a-5361-4c0d-9395-fa3dc3f2bcbb" />
+</p>
+
+<p>
+   <img width="1350" height="635" alt="2" src="https://github.com/user-attachments/assets/c978f252-b298-4de8-bb1f-eaa5b75107b4" />
+</p>
+
+<p>
+   <img width="1338" height="523" alt="3" src="https://github.com/user-attachments/assets/842a77ca-401f-43bf-973f-5523f657c26a" />
+</p>
+
+<p>
+   <img width="1351" height="637" alt="4" src="https://github.com/user-attachments/assets/fc8d2c92-93c2-4b5c-904c-557d9cf345a2" />
+</p>
+
 
 **¿Encontraste un bug o tienes sugerencias?** ¡Crea un issue o pull request!
